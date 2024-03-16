@@ -35,7 +35,6 @@ int main(int argc, char **argv) {
   WINDOW *w;
 
   w = initscr();
-  nonl();
   keypad(stdscr,TRUE);
   cbreak();
 
@@ -130,8 +129,8 @@ void getinput(WINDOW *w) {
   echo();
   nocbreak();
   
-  if (c == KEY_ENTER) {
-    if (cloc > 5 && cloc < 12)
+  if (c == 10) {
+    if (cloc > 2 && cloc < 12)
       prescribed[cloc-3] = actual[cloc-3]; // copy
     if (cloc < CURMAX-1)
       cloc++;
@@ -185,7 +184,7 @@ void computeMode(void) {
   if (lastcheck > 0) {
     if (t-lastcheck < 8)
       return; // take 8 sec to notice
-  }
+      }
 
   mode = strlen(name) > 0 && beam > 0 && energy > 0;  // initial fields set
   for (i=3; i < 9; i++) {
