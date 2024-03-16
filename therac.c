@@ -216,9 +216,9 @@ void doBeam(void) {
     if (actualbeam == beam)
       mvwprintw(w2,1,2,"TREATED %s SUCCESSFULLY!",name);
     else if (actualbeam == 2)
-      mvwprintw(w2,1,2,"MALFUNCTION 54 (%d rads delivered)",rand()%10000+10000);
+      mvwprintw(w2,1,2,"MALFUNCTION 54");
     else
-      mvwprintw(w2,1,2,"MALFUNCTION 26 (%d rads delivered)",rand()%10+10);
+      mvwprintw(w2,1,2,"MALFUNCTION 26");
   }
   wrefresh(w2);
   cbreak();
