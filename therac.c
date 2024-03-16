@@ -182,9 +182,13 @@ void computeMode(void) {
 
   time(&t);
   if (lastcheck > 0) {
-    if (t-lastcheck < 8)
+    if (t-lastcheck < 8) {
+      mvprintw(1,RIGHT," ");
       return; // take 8 sec to notice
-      }
+    } else {
+      mvprintw(1,RIGHT,".");
+    }
+  }
 
   mode = strlen(name) > 0 && beam > 0 && energy > 0;  // initial fields set
   for (i=3; i < 9; i++) {
